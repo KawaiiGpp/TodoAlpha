@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_alpha/data/todo.dart';
 import 'package:to_do_alpha/page/home_page.dart';
 
 class TodoAlpha extends StatefulWidget {
@@ -9,6 +10,8 @@ class TodoAlpha extends StatefulWidget {
 }
 
 class _State extends State<TodoAlpha> {
+  final todoList = <Todo>[];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,7 +21,7 @@ class _State extends State<TodoAlpha> {
       ),
 
       debugShowCheckedModeBanner: false,
-      home: const HomePage(),
+      home: HomePage(todoList: todoList),
     );
   }
 }
