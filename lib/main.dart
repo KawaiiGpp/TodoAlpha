@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:to_do_alpha/page/home_page.dart';
 import 'package:to_do_alpha/todo_alpha.dart';
 
 void main() {
