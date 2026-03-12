@@ -2,16 +2,15 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:to_do_alpha/todo_alpha.dart';
+import 'package:to_do_alpha/todo_alpha_app.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  _setupAndroidNavigationBar();
-
-  runApp(TodoAlpha());
+  _setupNavigationBar();
+  runApp(const TodoAlphaApp());
 }
 
-void _setupAndroidNavigationBar() {
+void _setupNavigationBar() {
   if (!Platform.isAndroid) return;
 
   WidgetsBinding.instance.endOfFrame.then((_) {

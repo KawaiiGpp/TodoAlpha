@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:to_do_alpha/data/todo.dart';
 import 'package:to_do_alpha/page/home_page.dart';
 
-class TodoAlpha extends StatefulWidget {
-  const TodoAlpha({super.key});
+class TodoAlphaApp extends StatefulWidget {
+  const TodoAlphaApp({super.key});
 
   @override
   State<StatefulWidget> createState() => _State();
 }
 
-class _State extends State<TodoAlpha> {
+class _State extends State<TodoAlphaApp> {
   final todoList = <Todo>[];
 
   @override
