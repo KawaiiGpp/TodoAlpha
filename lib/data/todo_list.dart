@@ -19,6 +19,8 @@ class TodoList {
 
   List<Todo> get items => [..._items];
 
+  int get length => _items.length;
+
   TodoList({List<Todo>? list}) : _items = list ?? <Todo>[];
 
   void add(Todo item) {
@@ -30,4 +32,6 @@ class TodoList {
     assert(_items.contains(item), "Todo not existing");
     _items.remove(item);
   }
+
+  Todo operator [](int index) => _items[index];
 }
