@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:to_do_alpha/data/todo_list.dart';
+import 'package:to_do_alpha/widget/todo_card.dart';
 
 class TodoListView extends StatefulWidget {
   final TodoList todoList;
@@ -13,13 +14,25 @@ class TodoListView extends StatefulWidget {
 class _State extends State<TodoListView> {
   @override
   Widget build(BuildContext context) {
-    final list = widget.todoList.items;
+    final todoList = widget.todoList;
 
     return ListView.builder(
-      itemCount: list.length,
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      itemCount: todoList.length,
+
       itemBuilder: (ctx, index) {
-        return Container(); // build cards
+        return TodoCard(
+          todo: todoList[index],
+          onToggled: (value) => _onToggled(index, value),
+          onGoDetail: _onGoDetail,
+        ); // build cards
       },
     );
   }
+
+  void _onToggled(int index, bool value) {
+    setState(() => widget.todoList[index].completed = value);
+  }
+
+  void _onGoDetail() {} // todo: navigation for going detail.
 }
