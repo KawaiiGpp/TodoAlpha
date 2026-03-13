@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_alpha/data/todo.dart';
 import 'package:to_do_alpha/data/todo_list.dart';
-import 'package:to_do_alpha/panel/todo_listview.dart';
+import 'package:to_do_alpha/widget/todo_listview.dart';
 import 'package:to_do_alpha/util/dialog.dart';
-import 'package:to_do_alpha/widget/light_dialog.dart';
-import 'package:to_do_alpha/widget/text_field_dialog.dart';
+import 'package:to_do_alpha/util/light_dialog.dart';
+import 'package:to_do_alpha/util/text_field_dialog.dart';
 
 class HomePage extends StatelessWidget {
   final TodoList todoList;

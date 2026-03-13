@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:to_do_alpha/widget/light_dialog.dart';
+import 'package:to_do_alpha/util/light_dialog.dart';
 
 class TextFieldDialog extends StatefulWidget {
   final Widget title;
