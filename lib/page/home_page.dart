@@ -4,6 +4,7 @@ import 'package:to_do_alpha/data/todo_list.dart';
 import 'package:to_do_alpha/panel/todo_listview.dart';
 import 'package:to_do_alpha/util/dialog.dart';
 import 'package:to_do_alpha/widget/light_dialog.dart';
+import 'package:to_do_alpha/widget/text_field_dialog.dart';
 
 class HomePage extends StatelessWidget {
   final TodoList todoList;
@@ -25,10 +26,11 @@ class HomePage extends StatelessWidget {
         context,
 
         pageBuilder: (ctx, a1, a2) {
-          return LightDialog(
-            title: const Text("测试"),
-            content: const Text("还是测试"),
-            onConfirm: () {},
+          return TextFieldDialog(
+            title: const Text("创建待办事项"),
+            hintText: "请在此输入事项名称 ...",
+            onSubmit: (text) {},
+            onInputCheck: _onInputCheck,
           );
         },
 
@@ -40,6 +42,11 @@ class HomePage extends StatelessWidget {
       elevation: 2,
       child: const Icon(Icons.add),
     );
+  }
+
+  String? _onInputCheck(String input) {
+    if (input.isEmpty) return "名称不可为空";
+    return null;
   }
 
   void _onNewTodoCreated(Todo todo) {}
