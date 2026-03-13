@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_alpha/util/light_dialog.dart';
 
+/// 文本框弹窗组件
+///
+/// 基于 [LightDialog]，保持统一的风格。
+///
+/// - [title] 为标题组件
+/// - [hintText] 为文本框默认提示文本
+/// - [onInputCheck] 确认键按下时触发，返回null代表通过检查
+/// - [onSubmit] 在通过检查后提交时触发
 class TextFieldDialog extends StatefulWidget {
   final Widget title;
-  final String hintText;
+  final String? hintText;
   final ValueChanged<String> onSubmit;
   final String? Function(String input) onInputCheck;
 

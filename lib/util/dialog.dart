@@ -15,6 +15,10 @@ typedef TransitionBuilder =
       Widget child,
     );
 
+/// 弹出轻巧风格的弹窗
+///
+/// 建议搭配Light系列组件使用。
+/// 风格与应用统一，背景附带模糊效果。
 Future<void> showLightDialog(
   BuildContext context, {
   required PageBuilder pageBuilder,

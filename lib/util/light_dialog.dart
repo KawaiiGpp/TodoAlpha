@@ -2,7 +2,16 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:to_do_alpha/util/constants.dart';
+import 'package:to_do_alpha/util/dialog.dart';
 
+/// 轻巧弹窗组件
+///
+/// 与应用统一的风格，
+/// 推荐搭配 [showLightDialog] 使用。
+///
+/// - [title] 为标题组件
+/// - [content] 为内容组件
+/// - [onConfirm] 为点击确认时触发的回调
 class LightDialog extends StatelessWidget {
   final Widget? title;
   final Widget? content;
