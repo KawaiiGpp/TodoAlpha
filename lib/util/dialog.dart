@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_alpha/util/light_dialog.dart';
 
 typedef PageBuilder =
     Widget Function(
@@ -22,13 +23,17 @@ typedef TransitionBuilder =
 Future<void> showLightDialog(
   BuildContext context, {
   required PageBuilder pageBuilder,
-  required TransitionBuilder transitionBuilder,
+  TransitionBuilder? transitionBuilder,
 }) {
+  final tb =
+      transitionBuilder ??
+      (ctx, a1, a2, child) => LightTransition(animation: a1, child: child);
+
   return showGeneralDialog(
     context: context,
     barrierColor: Colors.black12,
 
+    transitionBuilder: tb,
     pageBuilder: pageBuilder,
-    transitionBuilder: transitionBuilder,
   );
 }

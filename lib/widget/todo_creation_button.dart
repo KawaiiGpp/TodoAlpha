@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_alpha/util/dialog.dart';
-import 'package:to_do_alpha/util/light_dialog.dart';
 import 'package:to_do_alpha/util/light_floating_button.dart';
 import 'package:to_do_alpha/util/text_field_dialog.dart';
 
@@ -28,10 +27,6 @@ class TodoCreationButton extends StatelessWidget {
               onCreation(text);
             },
           );
-        },
-
-        transitionBuilder: (ctx, a1, a2, child) {
-          return LightTransition(sigma: 1.5, animation: a1, child: child);
         },
       ),
     );
