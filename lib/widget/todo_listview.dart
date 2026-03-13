@@ -1,5 +1,7 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:to_do_alpha/data/todo.dart';
 import 'package:to_do_alpha/data/todo_list.dart';
+import 'package:to_do_alpha/page/detail_page.dart';
 import 'package:to_do_alpha/widget/todo_card.dart';
 
 class TodoListView extends StatefulWidget {
@@ -21,18 +23,34 @@ class _State extends State<TodoListView> {
       itemCount: todoList.length,
 
       itemBuilder: (ctx, index) {
+        final todo = todoList[index];
+
         return TodoCard(
-          todo: todoList[index],
-          onToggled: (value) => _onToggled(index, value),
-          onGoDetail: _onGoDetail,
-        ); // build cards
+          todo: todo,
+          onToggled: (value) => _onToggled(todo, value),
+          onGoDetail: () => _onGoDetail(todo),
+        );
       },
     );
   }
 
-  void _onToggled(int index, bool value) {
-    setState(() => widget.todoList[index].completed = value);
+  void _onToggled(Todo todo, bool value) {
+    setState(() => todo.completed = value);
   }
 
-  void _onGoDetail() {} // todo: navigation for going detail.
+  void _onGoDetail(Todo todo) {
+    Navigator.push(
+      context,
+
+      MaterialPageRoute(
+        builder: (ctx) {
+          return DetailPage(todo: todo, onDelete: () => _onDelete(todo));
+        },
+      ),
+    );
+  }
+
+  void _onDelete(Todo todo) {
+    setState(() => widget.todoList.remove(todo));
+  }
 }
