@@ -49,6 +49,12 @@ class LightDialog extends StatelessWidget {
   }
 }
 
+/// 毛玻璃背景遮罩
+///
+/// 与应用统一风格，
+/// 推荐搭配 [showLightDialog] 使用。
+///
+/// - [sigma] 背景虚化程度，默认为1.5
 class LightTransition extends StatelessWidget {
   final double sigma;
   final Animation<double> animation;
@@ -56,7 +62,7 @@ class LightTransition extends StatelessWidget {
 
   const LightTransition({
     super.key,
-    required this.sigma,
+    this.sigma = 1.5,
     required this.animation,
     required this.child,
   });
