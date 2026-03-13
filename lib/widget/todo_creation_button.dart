@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_alpha/util/dialog.dart';
 import 'package:to_do_alpha/util/light_dialog.dart';
+import 'package:to_do_alpha/util/light_floating_button.dart';
 import 'package:to_do_alpha/util/text_field_dialog.dart';
 
 class TodoCreationButton extends StatelessWidget {
@@ -10,7 +11,9 @@ class TodoCreationButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FloatingActionButton(
+    return LightFloatingButton(
+      icon: Icons.add,
+
       onPressed: () => showLightDialog(
         context,
 
@@ -31,9 +34,6 @@ class TodoCreationButton extends StatelessWidget {
           return LightTransition(sigma: 1.5, animation: a1, child: child);
         },
       ),
-
-      elevation: 2,
-      child: const Icon(Icons.add),
     );
   }
 
