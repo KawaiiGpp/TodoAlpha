@@ -3,10 +3,10 @@ import 'package:to_do_alpha/data/todo.dart';
 import 'package:to_do_alpha/util/constants.dart';
 import 'package:to_do_alpha/widget/detail_item_card.dart';
 
-class TodoDetailPanel extends StatelessWidget {
+class TodoDetailListView extends StatelessWidget {
   final Todo todo;
 
-  const TodoDetailPanel({super.key, required this.todo});
+  const TodoDetailListView({super.key, required this.todo});
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_alpha/data/todo.dart';
 import 'package:to_do_alpha/widget/todo_delete_button.dart';
-import 'package:to_do_alpha/widget/todo_detail_panel.dart';
+import 'package:to_do_alpha/widget/todo_detail_listview.dart';
 
 class DetailPage extends StatelessWidget {
   final Todo todo;
@@ -13,7 +13,7 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("事项详情")),
-      body: TodoDetailPanel(todo: todo),
+      body: TodoDetailListView(todo: todo),
 
       floatingActionButton: TodoDeleteButton(
         onDelete: () => _onDelete(context),
