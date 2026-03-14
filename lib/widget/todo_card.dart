@@ -27,6 +27,7 @@ class TodoCard extends StatelessWidget {
 
     return LightCard(
       padding: const EdgeInsets.all(8),
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
 
       child: Row(
         children: [

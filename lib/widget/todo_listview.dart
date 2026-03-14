@@ -19,7 +19,7 @@ class _State extends State<TodoListView> {
     final todoList = widget.todoList;
 
     return ListView.builder(
-      padding: const EdgeInsets.symmetric(vertical: 8),
+      padding: const EdgeInsets.symmetric(vertical: 6),
       itemCount: todoList.length,
 
       itemBuilder: (ctx, index) {
