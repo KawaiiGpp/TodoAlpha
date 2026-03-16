@@ -1,5 +1,4 @@
-import 'dart:io';
-
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:to_do_alpha/todo_alpha_app.dart';
@@ -11,7 +10,7 @@ void main() {
 }
 
 void _setupNavigationBar() {
-  if (!Platform.isAndroid) return;
+  if (defaultTargetPlatform != TargetPlatform.android || kIsWeb) return;
 
   WidgetsBinding.instance.endOfFrame.then((_) {
     SystemChrome.setSystemUIOverlayStyle(
