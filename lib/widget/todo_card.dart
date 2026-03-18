@@ -40,7 +40,7 @@ class TodoCard extends StatelessWidget {
 
           Expanded(
             child: SingleChildScrollView(
-              scrollDirection: .horizontal,
+              scrollDirection: Axis.horizontal,
               child: Text(todo.name, style: font.titleMedium),
             ),
           ),

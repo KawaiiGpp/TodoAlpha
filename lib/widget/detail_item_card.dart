@@ -32,7 +32,7 @@ class DetailItemCard extends StatelessWidget {
 
           Expanded(
             child: SingleChildScrollView(
-              scrollDirection: .horizontal,
+              scrollDirection: Axis.horizontal,
               reverse: true,
 
               child: Text(content, style: font.titleMedium),

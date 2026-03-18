@@ -1,9 +1,20 @@
+import 'package:hive_flutter/hive_flutter.dart';
+
+part 'todo.g.dart';
+
 /// 单个待办事项实例
 ///
 /// 包含了名称、创建日期和完成状态。
+/// 支持Hive的存储和读取。
+@HiveType(typeId: 0)
 class Todo {
+  @HiveField(0)
   final String name;
+
+  @HiveField(1)
   final DateTime createTime;
+
+  @HiveField(2)
   bool completed;
 
   /// 根据模板创建待办事项

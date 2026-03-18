@@ -44,7 +44,7 @@ class LightCard extends StatelessWidget {
       child: Material(
         color: scheme.surfaceContainerLowest,
         borderRadius: borderRadius,
-        clipBehavior: .antiAlias,
+        clipBehavior: Clip.antiAlias,
         child: _buildContent(),
       ),
     );
