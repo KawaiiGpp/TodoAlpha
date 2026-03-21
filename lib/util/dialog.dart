@@ -20,20 +20,27 @@ typedef TransitionBuilder =
 ///
 /// 建议搭配Light系列组件使用。
 /// 风格与应用统一，背景附带模糊效果。
+///
+/// [preventPop] 代表是否允许用户返回
 Future<void> showLightDialog(
   BuildContext context, {
   required PageBuilder pageBuilder,
   TransitionBuilder? transitionBuilder,
+  bool preventPop = false,
 }) {
   final tb =
       transitionBuilder ??
       (ctx, a1, a2, child) => LightTransition(animation: a1, child: child);
+
+  Widget buildPage(ctx, a1, a2) => preventPop
+      ? PopScope(canPop: false, child: pageBuilder(ctx, a1, a2))
+      : pageBuilder(ctx, a1, a2);
 
   return showGeneralDialog(
     context: context,
     barrierColor: Colors.black12,
 
     transitionBuilder: tb,
-    pageBuilder: pageBuilder,
+    pageBuilder: buildPage,
   );
 }
