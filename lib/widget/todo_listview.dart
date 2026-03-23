@@ -80,8 +80,24 @@ class _State extends State<TodoListView> {
     );
   }
 
-  void _onDelete(Todo todo) {
-    setState(() => widget.todoList.remove(todo));
+  void _onDelete(Todo todo) async {
+    final todoList = widget.todoList;
+    setState(() => todoList.remove(todo));
+
+    try {
+      await todoList.save();
+    } catch (exception) {
+      if (!mounted) return;
+
+      showLightDialog(
+        context,
+        pageBuilder: (ctx, a1, a2) => TextDialog(
+          title: "删除失败",
+          subtitle: "无法保存更改，请联系开发者。\n$exception",
+          onConfirm: () => Navigator.pop(context),
+        ),
+      );
+    }
   }
 
   Future<void> _showExceptionDialog(Object exception) async {
