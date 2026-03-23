@@ -4,7 +4,7 @@ import 'package:to_do_alpha/data/todo_list.dart';
 import 'package:to_do_alpha/page/detail_page.dart';
 import 'package:to_do_alpha/util/dialog.dart';
 import 'package:to_do_alpha/util/light_loader.dart';
-import 'package:to_do_alpha/util/text_dialog.dart';
+import 'package:to_do_alpha/widget/failed_saving_dialog.dart';
 import 'package:to_do_alpha/widget/todo_card.dart';
 
 class TodoListView extends StatefulWidget {
@@ -61,7 +61,12 @@ class _State extends State<TodoListView> {
     try {
       await widget.todoList.save();
     } catch (exception) {
-      await _showExceptionDialog(exception);
+      if (!mounted) return;
+
+      await showLightDialog(
+        context,
+        pageBuilder: (ctx, a1, a2) => FailedSavingDialog(exception: exception),
+      );
     }
 
     if (!mounted) return;
@@ -89,27 +94,10 @@ class _State extends State<TodoListView> {
     } catch (exception) {
       if (!mounted) return;
 
-      showLightDialog(
+      await showLightDialog(
         context,
-        pageBuilder: (ctx, a1, a2) => TextDialog(
-          title: "删除失败",
-          subtitle: "无法保存更改，请联系开发者。\n$exception",
-          onConfirm: () => Navigator.pop(context),
-        ),
+        pageBuilder: (ctx, a1, a2) => FailedSavingDialog(exception: exception),
       );
     }
-  }
-
-  Future<void> _showExceptionDialog(Object exception) async {
-    if (!mounted) return;
-
-    await showLightDialog(
-      context,
-      pageBuilder: (ctx, a1, a2) => TextDialog(
-        title: "保存失败",
-        subtitle: "无法保存更改，请联系开发者。\n$exception",
-        onConfirm: () => Navigator.pop(context),
-      ),
-    );
   }
 }
