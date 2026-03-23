@@ -1,3 +1,4 @@
+import 'package:hive/hive.dart';
 import 'package:to_do_alpha/data/todo.dart';
 
 /// 待办事项列表
@@ -7,14 +8,6 @@ import 'package:to_do_alpha/data/todo.dart';
 ///
 /// - [items] 可用于获取集合副本
 class TodoList {
-  static final debugger = TodoList(
-    list: [
-      Todo.createNew("晾衣服"),
-      Todo.createNew("出门接孩子放学"),
-      Todo.createNew("去超市买面包"),
-    ],
-  );
-
   final List<Todo> _items;
 
   List<Todo> get items => [..._items];
@@ -34,4 +27,20 @@ class TodoList {
   }
 
   Todo operator [](int index) => _items[index];
+
+  void load() {
+    final box = _box();
+
+    _items.clear();
+    box.values.forEach(_items.add);
+  }
+
+  Future<void> save() async {
+    final box = _box();
+    
+    await box.clear();
+    await box.addAll(_items);
+  }
+
+  Box<Todo> _box() => Hive.box("todo");
 }

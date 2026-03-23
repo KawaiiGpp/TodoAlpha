@@ -10,10 +10,12 @@ class TodoAlphaApp extends StatefulWidget {
 }
 
 class _State extends State<TodoAlphaApp> {
-  final todoList = TodoList.debugger;
+  final todoList = TodoList();
 
   @override
   Widget build(BuildContext context) {
+    todoList.load();
+
     return MaterialApp(
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
