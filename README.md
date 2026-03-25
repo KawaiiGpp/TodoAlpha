@@ -1,17 +1,6 @@
-# to_do_alpha
+# Todo Alpha
 
-A simple todo app.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+一款简约轻量化风格的待办事项应用。  
+界面以清爽简约低饱和风格，给人以轻盈的感觉。  
+  
+应用使用基于 `Dart` 语言的 `Flutter` 开发。
